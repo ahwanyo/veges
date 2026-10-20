@@ -1,0 +1,323 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 點選單時平滑捲動 */
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+:root {
+  --bg: #edf2c6;        /* 頁面底色 */
+  --green: #798a50;     /* 主色 */
+  --green-dark: #5f6e3b;/* hover 用深綠 */
+  --panel: #f7fadc;     /* 卡片／內容區底色 */
+  --text: #6b6b55;      /* 內文 */
+}
+
+
+body {
+  width: 1440px;
+  min-height: 1024px;
+  margin: 0 auto;
+  font-family: "Noto Sans", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.wrapper {
+  width: 1123px;
+  margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 104px;
+  padding-top: 11px;
+}
+
+.logo {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: 0.5px;
+}
+
+.logo a {
+  transition: color 0.3s;
+}
+
+.logo a:hover {
+  color: var(--green-dark);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.social svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: var(--green);
+  transition: transform 0.25s, fill 0.25s;
+}
+
+/* 社群圖示 hover 放大 */
+.social:hover svg {
+  transform: scale(1.2);
+  fill: var(--green-dark);
+}
+
+.divider {
+  width: 1px;
+  height: 27px;
+  background-color: var(--green);
+  margin: 0 3px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 2px 7px;
+  border: 1px solid var(--green);
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background-color: var(--green);
+  color: #fff;
+}
+
+
+.nav {
+  position: sticky;   
+  top: 0;
+  z-index: 10;
+  background-color: var(--green);
+  height: 43px;
+  border-radius: 3px;
+}
+
+.nav ul {
+  display: flex;
+  height: 100%;
+  padding-left: 29px;
+}
+
+.nav li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 43px;
+  margin-right: 67px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* 選單底線從中間展開 */
+.nav li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 9px;
+  width: 0;
+  height: 2px;
+  background-color: var(--bg);
+  transition: width 0.3s, left 0.3s;
+}
+
+.nav li a:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+/* ===== Banner ===== */
+.banner {
+  height: 354px;
+  margin-top: 17px;
+  overflow: hidden;
+  background-color: #d8c93a; /* 圖片載入前的底色 */
+}
+
+/* Banner 圖片 hover 時慢慢放大 */
+.banner img {
+  transition: transform 1.2s ease;
+}
+
+.banner:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== Content ===== */
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 17px;
+  padding-bottom: 42px;
+}
+
+.col {
+  width: 530px;
+  scroll-margin-top: 60px; /* 跳轉時不被固定選單擋住 */
+}
+
+.section-title {
+  background-color: var(--green);
+  height: 44px;
+  line-height: 44px;
+  padding-left: 29px;
+  border-radius: 3px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 17px;
+}
+
+.card {
+  width: 166px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* 卡片 hover 浮起 */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(95, 110, 59, 0.25);
+}
+
+.card-img {
+  height: 116px;
+  overflow: hidden;
+  background-color: #ccc;
+}
+
+.card-img img {
+  transition: transform 0.4s;
+}
+
+.card:hover .card-img img {
+  transform: scale(1.12);
+}
+
+.card-text {
+  height: 194px;
+  margin-top: 16px;
+  padding: 16px 8px;
+  background-color: var(--panel);
+  font-size: 13px;
+}
+
+/* Contact */
+.contact-box {
+  height: 326px;
+  margin-top: 17px;
+  padding: 16px;
+  background-color: var(--panel);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.contact-intro {
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--green);
+}
+
+.contact-info {
+  margin-top: 11px;
+}
+
+.contact-info a {
+  transition: color 0.2s;
+}
+
+.contact-info a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background-color: var(--green);
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+}
+
+/* ===== 回到頂部按鈕 ===== */
+.back-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--green);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 46px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.25s, transform 0.25s;
+}
+
+.back-to-top:hover {
+  background-color: var(--green-dark);
+  transform: translateY(-4px);
+}
+
+/* ===== 進場淡入動畫 ===== */
+.fade-in {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.25s; }
+.delay-2 { animation-delay: 0.45s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
